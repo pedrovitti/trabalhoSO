@@ -1,10 +1,9 @@
 /*
-
  * programa1.c
  *
  *  Created on: Aug 15, 2011
  *      Authors: Pedro Artur F. Vitti
- *     			 Luiz Paulo de Farias Junior
+ *     		 Luiz Paulo de Farias Junior
  */
 
 #include <stdio.h>
@@ -44,6 +43,7 @@ main(argc, argv)
 int argc;
 char **argv;
 {
+    char **envCp = environ;
 	if(argc == 1)
 		printHelp();
 
@@ -52,9 +52,9 @@ char **argv;
 	while (1) {
 		static struct option long_options[] = {
 				{"help", 		0, 0, 'h'},
+				{"variavel", 	1, 0, 't'},
 				{"arguments", 	0, 0, 'a'},
 				{"environment", 0, 0, 'e'},
-				{"variavel", 	1, 0, 't'},
 				{"verbose", 	0, 0, 'v'},
 				{ 0,			0, 0,  0 }
 		};
@@ -91,8 +91,8 @@ char **argv;
 		case 'e':{
 			printf("\nopcao -e: Variaveis de Ambiente:\n\n");
 			int j = 0;
-			for ( ; *environ ; ++environ) {
-				printf("envp[%i]='%s'\n",j,*environ);
+			for ( ; *envCp ; ++envCp) {
+				printf("envp[%i]='%s'\n",j,*envCp);
 				j++;
 			}
 			printf("\n");
