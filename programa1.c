@@ -17,8 +17,6 @@ extern char **environ;
 /*Seta a flag verbose*/
 int interativo = 0;
 
-char *c_ptr;
-
 void printHelp() {
 	printf("\nuso: ./programa1 [-h] [-a] [-e] [-t VARIAVEL] [-v]");
 	printf("\n");
@@ -87,14 +85,17 @@ char **argv;
 		case 'e':{
 			printf("\nopcao -e: Variaveis de Ambiente:\n\n");
 			int j = 0;
-			for ( ; *environ; ++environ)
-				printf("envp[%i]='%s'\n",j++,*environ);
+			for ( ; *environ ; ++environ) {
+				printf("envp[%i]='%s'\n",j,*environ);
+				j++;
+			}
 			printf("\n");
 			break;
 		}
 		case 't':{
+			char *c_ptr;
 			c_ptr = getenv(optarg);
-			printf("opcao -t: %s='%s'\n",optarg, c_ptr==NULL ? "NAO ENCONTRADA\n" : c_ptr );
+			printf("opcao -t: %s='%s'\n",optarg, c_ptr==NULL ? "NAO ENCONTRADA" : c_ptr );
 			break;
 		}
 		case 'v':{
