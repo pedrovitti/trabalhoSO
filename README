@@ -1,0 +1,20 @@
+INE 5412 - Sistemas Operacionais I - 2011.2
+Laboratório 1 – Programa ‘C’ / UNIX
+Entrega: 17/08/2011 até as 18:00hs
+
+Descrição:
+O objetivo é escrever um programa C/C++, programa1, em ambiente Unix com
+argumentos de linha de comando, no estilo de um utilitário Unix típico, usando funções de
+biblioteca como getopt(), getopt_long(), getenv(), printf(), etc.
+
+
+Alunos: Pedro Artur F. Vitti
+        Luiz Paulo de Farias Jr.
+
+
+
+Uso: gcc -o programa1 programa1.c
+     ./programa1
+
+
+
