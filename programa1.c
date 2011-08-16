@@ -82,6 +82,12 @@ char **argv;
 			printf("\n");
 			break;
 		}
+		case 't':{
+			char *c_ptr;
+			c_ptr = getenv(optarg);
+			printf("opcao -t: %s='%s'\n",optarg, c_ptr==NULL ? "NAO ENCONTRADA" : c_ptr );
+			break;
+		}
 		case 'e':{
 			printf("\nopcao -e: Variaveis de Ambiente:\n\n");
 			int j = 0;
@@ -90,12 +96,6 @@ char **argv;
 				j++;
 			}
 			printf("\n");
-			break;
-		}
-		case 't':{
-			char *c_ptr;
-			c_ptr = getenv(optarg);
-			printf("opcao -t: %s='%s'\n",optarg, c_ptr==NULL ? "NAO ENCONTRADA" : c_ptr );
 			break;
 		}
 		case 'v':{
@@ -112,7 +112,7 @@ char **argv;
 
 		}
 		if (interativo==1)
-				printf("getopt: c=%c, argumento = %s\n",c,optarg);
+			printf("getopt: c=%c, argumento = %s\n",c,optarg);
 	}
 
 	/*Imprime argumentos inválidos*/
